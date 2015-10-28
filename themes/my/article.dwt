@@ -1,0 +1,29 @@
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+<div class="content clearfix w1140">
+    <div class="cont-mimg">
+        <img src="images/mimg1.jpg">
+    </div>
+    <div class="cont-l">
+        <p class="type-p">about us</p>
+        <ul>
+            <!--{foreach name=article_list from=$article_list item=article}--> 
+            <li {if $id eq $article.id} class="on" {/if}><a href="{$article.url}">{$article.title}</a></li>
+            <!--{/foreach}-->
+
+            <!--{foreach from=$article_categories item=cat}-->
+              <!--{if $cat.id eq $cat_id}-->
+              <!--{foreach from=$cat.children item=child}-->
+              <li><a href="{$child.url}">{$child.name|escape:html}</a></li>
+              <!--{/foreach}-->
+              <!--{/if}-->
+            <!--{/foreach}-->
+        </ul>
+    </div>
+    <div class="cont-r details">
+        <p class="news-titp">{$article.title}</p>
+        <div class="article_content">{$article.content}</div>
+    </div>
+</div>
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->

@@ -1,0 +1,45 @@
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+<div class="content clearfix w1140">
+    <div class="cont-mimg">
+        <img src="images/mimg1.jpg">
+    </div>
+    <div class="cont-l">
+        <p class="type-p">about us</p>
+        <ul>
+            <!--{foreach name=article_list from=$article_list item=article}--> 
+            <li><a href="{$article.url}">{$article.title}</a></li>
+            <!--{/foreach}-->
+
+            <!--{foreach from=$article_categories item=cat}-->
+              <!--{if $cat.id eq $cat_id}-->
+              <!--{foreach from=$cat.children item=child}-->
+              <li {if $cat_id eq $article.id} class="on" {/if}><a href="{$child.url}">{$child.name|escape:html}</a></li>
+              <!--{/foreach}-->
+              <!--{/if}-->
+            <!--{/foreach}-->
+        </ul>
+    </div>
+    <div class="cont-r">
+        <ul class="listnews">
+        
+            <li>
+                <a href="#" class="news-img fl"><img src="images/news1.jpg"></a>
+                <div class="fl news-nr">
+                    <a href="#" class="a-title">
+                        Admin
+                        <span style="font-size: 12px;padding: 0px 5px">12 July 2014 at 10.30am</span>
+                        <span class="tspan">reply</span>
+                    </a>
+                    <p>
+                        By Malene Birger is happy to announce the opening of the newly renovated flagship store located at Marylebone High Street, London.
+                        “With an impeccable aesthetic eye and an extreme focus on details, Dimore Studio turned out to be the perfect match for By Malene Birger.
+                    </p>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->

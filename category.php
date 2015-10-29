@@ -397,7 +397,7 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
             $goodslist[] = array();
         }
     }
-    var_dump($goodslist);
+    //var_dump($goodslist);
     $smarty->assign('goods_list',       $goodslist);
     $smarty->assign('category',         $cat_id);
     $smarty->assign('category_name',         $cat['cat_name']);

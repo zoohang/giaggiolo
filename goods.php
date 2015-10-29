@@ -187,11 +187,16 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
             }
         }
 
-        $smarty->assign('goods',              $goods);
+        $smarty->assign('goods',              $goods);//var_dump($goods);
         $smarty->assign('goods_id',           $goods['goods_id']);
         $smarty->assign('promote_end_time',   $goods['gmt_end_time']);
         $smarty->assign('categories',         get_categories_tree($goods['cat_id']));  // 分类树
-
+            $smarty->assign('categories_shop',      get_child_tree(16)); // 分类树
+    $smarty->assign('categories_women',      get_child_tree(17)); // 分类树
+    $smarty->assign('categories_ccessories',      get_categories_tree(18)); // 分类树
+    $smarty->assign('lookbook',     get_cat_articles(11));       // 商店公告
+    $smarty->assign('glaggiolo_world',     get_cat_articles(4));       // 商店公告
+    $smarty->assign('aboutus',     get_cat_articles(12));       // 商店公告
         /* meta */
         $smarty->assign('keywords',           htmlspecialchars($goods['keywords']));
         $smarty->assign('description',        htmlspecialchars($goods['goods_brief']));
@@ -229,6 +234,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
         $properties = get_goods_properties($goods_id);  // 获得商品的规格和属性
 
         $smarty->assign('properties',          $properties['pro']);                              // 商品属性
+        //var_dump($properties);
         $smarty->assign('specification',       $properties['spe']);                              // 商品规格
         $smarty->assign('attribute_linked',    get_same_attribute_goods($properties));           // 相同属性的关联商品
         $smarty->assign('related_goods',       $linked_goods);                                   // 关联商品
@@ -236,6 +242,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
         $smarty->assign('fittings',            get_goods_fittings(array($goods_id)));                   // 配件
         $smarty->assign('rank_prices',         get_user_rank_prices($goods_id, $shop_price));    // 会员等级价格
         $smarty->assign('pictures',            get_goods_gallery($goods_id));                    // 商品相册
+        //var_dump(get_goods_gallery($goods_id));
         $smarty->assign('bought_goods',        get_also_bought($goods_id));                      // 购买了该商品的用户还购买了哪些商品
         $smarty->assign('goods_rank',          get_goods_rank($goods_id));                       // 商品的销售排名
 

@@ -1804,8 +1804,8 @@ elseif ($_REQUEST['step'] == 'update_cart')
     {
         flow_update_cart($_POST['goods_number']);
     }
-
-    show_message($_LANG['update_cart_notice'], $_LANG['back_to_cart'], 'flow.php');
+    ecs_header("Location: flow.php\n");
+    //show_message($_LANG['update_cart_notice'], $_LANG['back_to_cart'], 'flow.php');
     exit;
 }
 
@@ -2091,7 +2091,7 @@ else
 
     /* 取得商品列表，计算合计 */
     $cart_goods = get_cart_goods();
-    $smarty->assign('goods_list', $cart_goods['goods_list']);
+    $smarty->assign('goods_list', $cart_goods['goods_list']);//var_dump($cart_goods['goods_list']);
     $smarty->assign('total', $cart_goods['total']);
 
     //购物车的描述的格式化
@@ -2112,6 +2112,8 @@ else
     usort($favourable_list, 'cmp_favourable');
 
     $smarty->assign('favourable_list', $favourable_list);
+
+
 
     /* 计算折扣 */
     $discount = compute_discount();
@@ -2140,7 +2142,12 @@ else
 
     $smarty->assign('fittings_list', $fittings_list);
 }
-
+    $smarty->assign('categories_shop',      get_child_tree(16)); // 分类树
+    $smarty->assign('categories_women',      get_child_tree(17)); // 分类树
+    $smarty->assign('categories_ccessories',      get_categories_tree(18)); // 分类树
+    $smarty->assign('lookbook',     get_cat_articles(11));       // 商店公告
+    $smarty->assign('glaggiolo_world',     get_cat_articles(4));       // 商店公告
+    $smarty->assign('aboutus',     get_cat_articles(12));       // 商店公告
 $smarty->assign('currency_format', $_CFG['currency_format']);
 $smarty->assign('integral_scale',  $_CFG['integral_scale']);
 $smarty->assign('step',            $_REQUEST['step']);

@@ -33,16 +33,18 @@
         <div class="shop">
             <ul>
                 <!--{foreach name=goods_list from=$goods_list item=goods}-->
+                <!--{if $goods}-->
                 <li>
                     <div class="lishop">
                         <div class="shopimg">
-                            <a href="{$goods.url}" class="no-bcolor"><img src="{$goods.goods_thumb}" width="243px" height="324px"></a>
+                            <a href="{$goods.url}" class="no-bcolor"><img src="{$goods.goods_img}" width="243px" height="324px"></a>
                             <a href="{$goods.url}" class="yes-bcolor"><img src="{$goods.goods_img2}" width="243px" height="324px"></a>
                         </div>
-                        <p><a href="#">{$goods.goods_name}</a></p>
+                        <p><a href="{$goods.url}">{$goods.goods_name}</a></p>
                         <p>{$goods.shop_price}</p>
                     </div>
                 </li>
+                <!--{/if}-->
                 <!--{/foreach}-->
             </ul>
         </div>

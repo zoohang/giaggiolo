@@ -2272,7 +2272,7 @@ elseif ($action =='email_list')
     {
         if(isset($_SESSION['last_email_query']))
         {
-            if(time() - $_SESSION['last_email_query'] <= 30)
+            if(time() - $_SESSION['last_email_query'] <= 1)
             {
                 die($_LANG['order_query_toofast']);
             }

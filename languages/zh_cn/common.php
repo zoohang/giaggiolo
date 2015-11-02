@@ -719,8 +719,8 @@ $_LANG['orgtotal'] = '原始价格';
 $_LANG['heart_buy'] = '心动不如行动';
 
 /* 其他模板涉及常用语言项 */
-$_LANG['label_regist'] = '用户注册';
-$_LANG['label_login'] = '用户登录';
+$_LANG['label_regist'] = '注册';
+$_LANG['label_login'] = '登录';
 $_LANG['label_profile'] = '用户信息';
 $_LANG['label_collection'] = '我的收藏';
 $_LANG['article_list'] = '文章列表';
@@ -728,6 +728,7 @@ $_LANG['preferences_price'] = '优惠价格';
 $_LANG['divided_into'] = '分成规则';
 
 /* 登录 注册 */
+$_LANG['must_fill'] = '必须填写栏目';
 $_LANG['label_username'] = '用户名';
 $_LANG['label_email'] = 'email';
 $_LANG['label_password'] = '密码';
@@ -740,15 +741,19 @@ $_LANG['other_office_phone'] = '办公电话';
 $_LANG['other_home_phone'] = '家庭电话';
 $_LANG['other_mobile_phone'] = '手机';
 $_LANG['remember'] = '记住密码';
-
+$_LANG['read_more'] = '查看更多';
 $_LANG['msg_un_blank'] = '用户名不能为空';
 $_LANG['msg_un_length'] = '用户名最长不得超过7个汉字';
+$_LANG['msg_un_zifu'] = '个字符';
 $_LANG['msg_un_format'] = '用户名含有非法字符';
 $_LANG['msg_un_registered'] = '用户名已经存在,请重新输入';
 $_LANG['msg_can_rg'] = '可以注册';
 $_LANG['msg_email_blank'] = '邮件地址不能为空';
 $_LANG['msg_email_registered'] = '邮箱已存在,请重新输入';
 $_LANG['msg_email_format'] = '邮件地址不合法';
+
+$_LANG['new_arrivals'] = '新品推荐';
+
 
 $_LANG['login_success'] = '登录成功';
 $_LANG['confirm_login'] = '确认登录';

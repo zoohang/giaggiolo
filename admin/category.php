@@ -102,6 +102,7 @@ if ($_REQUEST['act'] == 'insert')
     $cat['cat_desc']     = !empty($_POST['cat_desc'])     ? $_POST['cat_desc']           : '';
     $cat['measure_unit'] = !empty($_POST['measure_unit']) ? trim($_POST['measure_unit']) : '';
     $cat['cat_name']     = !empty($_POST['cat_name'])     ? trim($_POST['cat_name'])     : '';
+    $cat['cat_name_en']     = !empty($_POST['cat_name_en'])     ? trim($_POST['cat_name_en'])     : '';
     $cat['show_in_nav']  = !empty($_POST['show_in_nav'])  ? intval($_POST['show_in_nav']): 0;
     $cat['style']        = !empty($_POST['style'])        ? trim($_POST['style'])        : '';
     $cat['is_show']      = !empty($_POST['is_show'])      ? intval($_POST['is_show'])    : 0;
@@ -209,7 +210,7 @@ if ($_REQUEST['act'] == 'edit')
         $smarty->assign('cat_recommend', $cat_recommend);
     }
 
-    $smarty->assign('cat_info',    $cat_info);
+    $smarty->assign('cat_info',    $cat_info);var_dump($cat_info);
     $smarty->assign('form_act',    'update');
     $smarty->assign('cat_select',  cat_list(0, $cat_info['parent_id'], true));
     $smarty->assign('goods_type_list',  goods_type_list(0)); // 取得商品类型
@@ -261,6 +262,7 @@ if ($_REQUEST['act'] == 'update')
     $cat['cat_desc']     = !empty($_POST['cat_desc'])     ? $_POST['cat_desc']           : '';
     $cat['measure_unit'] = !empty($_POST['measure_unit']) ? trim($_POST['measure_unit']) : '';
     $cat['cat_name']     = !empty($_POST['cat_name'])     ? trim($_POST['cat_name'])     : '';
+    $cat['cat_name_en']     = !empty($_POST['cat_name_en'])     ? trim($_POST['cat_name_en'])     : '';
     $cat['is_show']      = !empty($_POST['is_show'])      ? intval($_POST['is_show'])    : 0;
     $cat['show_in_nav']  = !empty($_POST['show_in_nav'])  ? intval($_POST['show_in_nav']): 0;
     $cat['style']        = !empty($_POST['style'])        ? trim($_POST['style'])        : '';

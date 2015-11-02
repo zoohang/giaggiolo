@@ -8,6 +8,10 @@
     <td><input type="text" name="cat_name" maxlength="60" size = "30" value="{$cat.cat_name|escape}" />{$lang.require_field}</td>
   </tr>
   <tr>
+    <td class="label">{$lang.cat_name_en}</td>
+    <td><input type="text" name="cat_name_en" maxlength="60" size = "30" value="{$cat.cat_name_en|escape}" />{$lang.require_field}</td>
+  </tr>
+  <tr>
     <td class="label">{$lang.parent_cat}</td>
     <td>
       <select name="parent_id" onchange="catChanged()" {if $disabled }disabled="disabled"{/if} >

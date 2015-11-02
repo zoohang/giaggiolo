@@ -20,8 +20,8 @@
 <!-- {if $action eq 'login'} -->
     <div class="register w1140">
       <div class="inregister" style="width: 600px">
-          <p class="reg-tp">登陆</p>
-          <p style="margin-bottom: 10px">*必须填写栏目</p>
+          <p class="reg-tp">{$lang.label_login}</p>
+          <p style="margin-bottom: 10px">*{$lang.must_fill}</p>
            <form name="formLogin" action="user.php" method="post" onSubmit="return userLogin()">
               <p>*{$lang.label_username}</p>
               <input name="username" type="text" size="25" class="reg-txt" />
@@ -40,7 +40,7 @@
               <input type="hidden" name="act" value="act_login" />
               <input type="hidden" name="back_act" value="{$back_act}" />
 
-              <br><input type="submit" value="登陆" class="reg-submit">
+              <br><input type="submit" value="{$lang.label_login}" class="reg-submit">
           </form>
       </div>
   </div>
@@ -59,8 +59,8 @@
     {insert_scripts files='utils.js'}
     <div class="register w1140">
       <div class="inregister" style="width: 600px">
-          <p class="reg-tp">注册</p>
-          <p style="margin-bottom: 10px">*必须填写栏目</p>
+          <p class="reg-tp">{$lang.label_regist}</p>
+          <p style="margin-bottom: 10px">*{$lang.must_fill}</p>
            <form action="user.php" method="post" name="formUser" onsubmit="return register();">
               <p>*{$lang.label_email}</p>
               <input name="email" type="text" id="email" onblur="checkEmail(this.value);"  class="reg-txt"/>
@@ -70,7 +70,7 @@
               <input name="username" type="text" id="username" onblur="is_registered(this.value);" class="reg-txt"/>
               <span id="username_notice" style="color:#FF0000"></span>
 
-              <p>*{$lang.label_password}(6-20个字符)</p>
+              <p>*{$lang.label_password}(6-20{$lang.msg_un_zifu})</p>
               <input name="password" type="password" id="password1" onblur="check_password(this.value);" onkeyup="checkIntensity(this.value)" class="reg-txt" />
               <span style="color:#FF0000" id="password_notice"></span>
 
@@ -82,7 +82,7 @@
               <input name="act" type="hidden" value="act_register" >
               <input type="hidden" name="back_act" value="{$back_act}" />
 
-              <input type="submit" value="注册" class="reg-submit">
+              <input type="submit" value="{$lang.label_regist}" class="reg-submit">
           </form>
       </div>
   </div>

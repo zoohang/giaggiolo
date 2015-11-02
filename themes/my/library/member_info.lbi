@@ -4,6 +4,6 @@
 <a href="user.php">{$lang.user_center}</a> | <a href="user.php?act=logout">{$lang.user_logout}</a>
 {else}
  {$lang.welcome}&nbsp;&nbsp;&nbsp;&nbsp;
- 		<a href="javascript:void (0)" id="zc">登录</a>&nbsp;|
-    <a href="user.php?act=register">注册</a>
+ 		<a href="javascript:void (0)" id="zc">{$lang.label_login}</a>&nbsp;|
+    <a href="user.php?act=register">{$lang.label_regist}</a>
 {/if}

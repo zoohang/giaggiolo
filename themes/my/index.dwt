@@ -30,40 +30,70 @@
     <div class="con2 w1140">
       <div class="c2-l">
         <dl>
-          <dt>shopping</dt>
-          <dd><a href="#">new</a></dd>
-          <dd><a href="#">suits</a></dd>
-          <dd><a href="#">shirts</a></dd>
-          <dd><a href="#">pants</a></dd>
-          <dd><a href="#">accessories</a></dd>
-          <dd><a href="#">tailor's kit</a></dd>
-          <dd><a href="#">tape measure</a></dd>
-          <dd><a href="#">gift cards</a></dd>
+          <dt>lookbook</dt>
+          <dd><a href="article.php?id=30">weddings 2015</a></dd>
+          <dd><a href="article.php?id=29">summer 2016</a></dd>
+          <dd><a href="article.php?id=28">weddings 2016</a></dd>
         </dl>
         <dl>
-          <dt>collections</dt>
-          <dd><a href="#">the essentials</a></dd>
-          <dd><a href="#">fall 2015</a></dd>
-          <dd><a href="#">summer 2015</a></dd>
-          <dd><a href="#">weddings</a></dd>
+          <dt>shop</dt>
+          <dd><a href="category.php?id=17">Women’s Clothing</a></dd>
+          <dd><a href="category.php?id=18">accessories</a></dd>
+          <dd><a href="category.php?id=16">Shipping</a></dd>
+          <dd><a href="category.php?id=22">After-sale service</a></dd>
         </dl>
         <dl>
-          <dt>indochino</dt>
-          <dd><a href="#">blog</a></dd>
-          <dd><a href="#">why custom</a></dd>
-          <dd><a href="#">how it works</a></dd>
-          <dd><a href="#">about</a></dd>
-          <dd><a href="#">indochino reviews</a></dd>
-          <dd><a href="#">press</a></dd>
-          <dd><a href="#">careers</a></dd>
+          <dt>giaggiolo world</dt>
+          <dd><a href="article.php?id=35">Giaggiolo Girls</a></dd>
+          <dd><a href="article.php?id=27">Fashion Source</a></dd>
+          <dd><a href="article.php?id=8">Designer Brands</a></dd>
+          <dd><a href="article.php?id=7">Designer co+</a></dd>
+          <dd><a href="article_cat.php?id=13">News</a></dd>
+        </dl>
+        <dl>
+          <dt>about us</dt>
+          <dd><a href="article.php?id=33">Contcact us</a></dd>
+          <dd><a href="article.php?id=34">Media</a></dd>
         </dl>
       </div>
       <div class="c2-r">
         <p>JOIN OUR MAILING LIST</p>
-        <form>
-          <input type="text" value="Your email"  class="mes-txt" onclick="if(value==defaultValue){value='';}"onblur="if(!value){value=defaultValue;}">
-          <input type="submit" value="follow us" class="mes-btn">
-        </form>
+        <form onsubmit="add_email_list();">
+  <input type="text" value="Your email" id="user_email" class="mes-txt" onclick="if(value==defaultValue){value='';}"onblur="if(!value){value=defaultValue;}">
+  <input type="submit" value="follow us" class="mes-btn">
+</form>
+
+<script type="text/javascript">
+function add_email_list()
+{
+  var email = document.getElementById('user_email');
+  if (check_email())
+  {
+    Ajax.call('user.php?act=email_list&job=add&email=' + email.value, '', rep_add_email_list, 'GET', 'TEXT');
+  }
+}
+function rep_add_email_list(text)
+{
+  alert('Subscription success!');
+  return false;
+}
+
+function check_email()
+{
+  var email = document.getElementById('user_email');
+
+  if (Utils.isEmail(email.value))
+  {
+    return true;
+  }
+  else
+  {
+    alert('{$lang.email_invalid}');
+    return false;
+  }
+}
+</script>
+
         <div class="fx">
           <a href="#" class="fxa1"></a>
           <a href="#" class="fxa2"></a>

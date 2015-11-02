@@ -117,7 +117,7 @@ $err = new ecs_error('message.dwt');
 $_CFG = load_config();
 
 /* 载入语言文件 */
-require(ROOT_PATH . 'languages/' . $_CFG['lang'] . '/common.php');
+//require(ROOT_PATH . 'languages/' . $_CFG['lang'] . '/common.php');
 
 if ($_CFG['shop_closed'] == 1)
 {
@@ -185,7 +185,7 @@ if (!defined('INIT_NO_SMARTY'))
         $smarty->force_compile = false;
     }
 
-    $smarty->assign('lang', $_LANG);
+    //$smarty->assign('lang', $_LANG);
     $smarty->assign('ecs_charset', EC_CHARSET);
     if (!empty($_CFG['stylename']))
     {
@@ -280,6 +280,26 @@ if (!defined('INIT_NO_USERS'))
         $smarty->assign('ecs_session', $_SESSION);
     }
 }
+
+if(!empty($_REQUEST['lang'])){
+ $_SESSION['lang']=$_REQUEST['lang'];
+}
+if (!empty($_SESSION['lang']))
+{
+switch($_SESSION['lang']){
+  case 'zh_cn':
+   $_CFG['lang']="zh_cn";
+  break;
+  case 'zh_tw':
+   $_CFG['lang']="zh_tw";
+  break;
+  case 'en_us':
+   $_CFG['lang']="en_us";
+  break;
+}
+}
+require(ROOT_PATH . 'languages/' . $_CFG['lang'] . '/common.php');
+$smarty->assign('lang', $_LANG);
 
 if ((DEBUG_MODE & 1) == 1)
 {

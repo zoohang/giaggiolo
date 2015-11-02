@@ -7,7 +7,7 @@
 	<div class="inplogin" id="inplogin">
 		<a href="javascript:void (0)" class="logincolse close_login"></a>
 		<div class="login-main">
-			<p class="login-tit">用户登录</p>
+			<p class="login-tit">{$lang.label_login}</p>
 			<div class="login-l fl">
 				<form name="formLogin" action="user.php" method="post">
 					<table>
@@ -67,8 +67,8 @@
 				</form>
 			</div>
 			<div class="login-r fl">
-				<p><a href="#" class="lr-tj">新品推荐 》</a></p>
-				<p><a href="#" class="tj-more">查看更多</a></p>
+				<p><a href="#" class="lr-tj">{$lang.new_arrivals} 》</a></p>
+				<p><a href="#" class="tj-more">{$lang.read_more}</a></p>
 				<div class="login-tjpic">
 					<a href="#"><img src="images/login_tjpic.jpg"></a>
 				</div>

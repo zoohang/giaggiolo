@@ -19,22 +19,21 @@
     </div>
     <div class="cont-r">
         <ul class="listnews">
-        
+            <!--{foreach from=$artciles_list item=article}-->
             <li>
-                <a href="#" class="news-img fl"><img src="images/news1.jpg"></a>
+                <a href="{$article.url}" class="news-img fl"><img src="images/news1.jpg"></a>
                 <div class="fl news-nr">
-                    <a href="#" class="a-title">
-                        Admin
-                        <span style="font-size: 12px;padding: 0px 5px">12 July 2014 at 10.30am</span>
-                        <span class="tspan">reply</span>
+                    <a href="{$article.url}" class="a-title">
+                        {$article.author}
+                        <span style="font-size: 12px;padding: 0px 5px">{$article.add_time}</span>
+                        <span class="tspan">{$article.title}</span>
                     </a>
                     <p>
-                        By Malene Birger is happy to announce the opening of the newly renovated flagship store located at Marylebone High Street, London.
-                        “With an impeccable aesthetic eye and an extreme focus on details, Dimore Studio turned out to be the perfect match for By Malene Birger.
+                        {$article.content|truncate:200}
                     </p>
                 </div>
             </li>
-
+            <!--{/foreach}-->
         </ul>
     </div>
 </div>

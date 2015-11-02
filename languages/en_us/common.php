@@ -720,6 +720,7 @@ $_LANG['orgtotal'] = 'Original Price';
 $_LANG['heart_buy'] = 'Take Action';
 
 /* 其他模板涉及常用语言项 */
+$_LANG['must_fill'] = 'Must fill in the column';
 $_LANG['label_regist'] = 'regist';
 $_LANG['label_login'] = 'login';
 $_LANG['label_profile'] = 'user profile';
@@ -740,9 +741,14 @@ $_LANG['other_qq'] = 'QQ';
 $_LANG['other_office_phone'] = 'Office phone';
 $_LANG['other_home_phone'] = 'Home phone';
 $_LANG['other_mobile_phone'] = 'Mobile phone';
+$_LANG['read_more'] = 'see more';
 $_LANG['remember'] = 'Remember password';
 
+$_LANG['new_arrivals'] = 'New Arrivals';
+
+
 $_LANG['msg_un_blank'] = 'Username is blank';
+$_LANG['msg_un_zifu'] = 'character';
 $_LANG['msg_un_length'] = 'Username cannot exceed 7 Chinese charaters';
 $_LANG['msg_un_format'] = 'Username has invalid charater';
 $_LANG['msg_un_registered'] = 'Username exists, please register again';

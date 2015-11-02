@@ -16,6 +16,7 @@
 */
 
 $_LANG['cat_name'] = 'Name';
+$_LANG['cat_name'] = 'Name (English)';
 $_LANG['type'] = 'Category Type';
 $_LANG['type_name'][COMMON_CAT] = 'General classification';
 $_LANG['type_name'][SYSTEM_CAT] = 'Taxonomy';

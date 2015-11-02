@@ -92,7 +92,7 @@ if ($action == 'act_add_message')
             $_SESSION['send_time'] = $cur_time;
         }
         $msg_info = $_CFG['message_check'] ? $_LANG['message_submit_wait'] : $_LANG['message_submit_done'];
-        show_message($msg_info, $_LANG['message_list_lnk'], 'message.php');
+        show_message($msg_info, $_LANG['message_list_lnk'], '');
     }
     else
     {

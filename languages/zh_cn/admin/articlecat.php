@@ -14,6 +14,7 @@
 */
 
 $_LANG['cat_name'] = '文章分类名称';
+$_LANG['cat_name_en'] = '文章分类名称(英文)';
 $_LANG['type'] = '分类类型';
 $_LANG['type_name'][COMMON_CAT] = '普通分类';
 $_LANG['type_name'][SYSTEM_CAT] = '系统分类';

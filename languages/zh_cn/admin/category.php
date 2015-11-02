@@ -16,6 +16,7 @@
 /* 商品分类字段信息 */
 $_LANG['cat_id'] = '编号';
 $_LANG['cat_name'] = '分类名称';
+$_LANG['cat_name_en'] = '分类名称(英文)';
 $_LANG['isleaf'] = '不允许';
 $_LANG['noleaf'] = '允许';
 $_LANG['keywords'] = '关键字';

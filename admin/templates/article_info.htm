@@ -5,9 +5,10 @@
 <div class="tab-div">
   <div id="tabbar-div">
     <p>
-      <span class="tab-front" id="general-tab">{$lang.tab_general}</span><span
-      class="tab-back" id="detail-tab">{$lang.tab_content}</span><span
-      class="tab-back" id="goods-tab">{$lang.tab_goods}</span>
+      <span class="tab-front" id="general-tab">{$lang.tab_general}</span>
+      <span class="tab-back" id="detail-tab">{$lang.tab_content}</span>
+      <span class="tab-back" id="detail2-tab">{$lang.tab_content_en}</span>
+      <span class="tab-back" id="goods-tab">{$lang.tab_goods}</span>
     </p>
   </div>
 
@@ -17,7 +18,11 @@
       <tr>
         <td class="narrow-label">{$lang.title}</td>
         <td><input type="text" name="title" size ="40" maxlength="60" value="{$article.title|escape}" />{$lang.require_field}</td>
-      </tr>          
+      </tr>
+      <tr>
+        <td class="narrow-label">{$lang.title_en}</td>
+        <td><input type="text" name="title_en" size ="40" maxlength="60" value="{$article.title_en|escape}" />{$lang.require_field}</td>
+      </tr>        
       <!-- {if $article.cat_id >= 0} -->
       <tr>
         <td class="narrow-label">{$lang.cat} </td>
@@ -80,6 +85,10 @@
 
     <table width="90%" id="detail-table" style="display:none">
      <tr><td>{$FCKeditor}</td></tr>
+    </table>
+
+    <table width="90%" id="detail2-table" style="display:none">
+     <tr><td>{$content_en}</td></tr>
     </table>
 
     <table width="90%" id="goods-table" style="display:none">

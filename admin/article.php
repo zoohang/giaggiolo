@@ -84,6 +84,7 @@ if ($_REQUEST['act'] == 'add')
 
     /* 创建 html editor */
     create_html_editor('FCKeditor1');
+    create_html_editor2('content_en','content_en');
 
     /*初始化*/
     $article = array();
@@ -166,10 +167,10 @@ if ($_REQUEST['act'] == 'insert')
     {
         $_POST['cat_id'] = 0;
     }
-    $sql = "INSERT INTO ".$ecs->table('article')."(title, cat_id, article_type, is_open, author, ".
-                "author_email, keywords, content, add_time, file_url, open_type, link, description) ".
-            "VALUES ('$_POST[title]', '$_POST[article_cat]', '$_POST[article_type]', '$_POST[is_open]', ".
-                "'$_POST[author]', '$_POST[author_email]', '$_POST[keywords]', '$_POST[FCKeditor1]', ".
+    $sql = "INSERT INTO ".$ecs->table('article')."(title,title_en, cat_id, article_type, is_open, author, ".
+                "author_email, keywords, content,content_en, add_time, file_url, open_type, link, description) ".
+            "VALUES ('$_POST[title]','$_POST[title_en]', '$_POST[article_cat]', '$_POST[article_type]', '$_POST[is_open]', ".
+                "'$_POST[author]', '$_POST[author_email]', '$_POST[keywords]', '$_POST[FCKeditor1]','$_POST[content_en]', ".
                 "'$add_time', '$file_url', '$open_type', '$_POST[link_url]', '$_POST[description]')";
     $db->query($sql);
 
@@ -205,6 +206,7 @@ if ($_REQUEST['act'] == 'edit')
 
     /* 创建 html editor */
     create_html_editor('FCKeditor1',$article['content']);
+    create_html_editor2('content_en','content_en',$article['content_en']);
 
     /* 取得分类、品牌 */
     $smarty->assign('goods_cat_list', cat_list());
@@ -284,7 +286,7 @@ if ($_REQUEST['act'] =='update')
         @unlink(ROOT_PATH . $old_url);
     }
 
-    if ($exc->edit("title='$_POST[title]', cat_id='$_POST[article_cat]', article_type='$_POST[article_type]', is_open='$_POST[is_open]', author='$_POST[author]', author_email='$_POST[author_email]', keywords ='$_POST[keywords]', file_url ='$file_url', open_type='$open_type', content='$_POST[FCKeditor1]', link='$_POST[link_url]', description = '$_POST[description]'", $_POST['id']))
+    if ($exc->edit("title='$_POST[title]',title_en='$_POST[title_en]', cat_id='$_POST[article_cat]', article_type='$_POST[article_type]', is_open='$_POST[is_open]', author='$_POST[author]', author_email='$_POST[author_email]', keywords ='$_POST[keywords]', file_url ='$file_url', open_type='$open_type', content='$_POST[FCKeditor1]',content_en='$_POST[content_en]', link='$_POST[link_url]', description = '$_POST[description]'", $_POST['id']))
     {
         $link[0]['text'] = $_LANG['back_list'];
         $link[0]['href'] = 'article.php?act=list&' . list_link_postfix();

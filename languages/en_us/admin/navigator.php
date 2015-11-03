@@ -16,6 +16,7 @@
 $_LANG['add_new'] = 'Add navigation';
 $_LANG['system_main'] = 'System Properties';
 $_LANG['item_name'] = 'Name';
+$_LANG['item_name_en'] = 'Name(English)';
 $_LANG['item_ifshow'] = 'Does it show that the';
 $_LANG['item_opennew'] = 'Whether the new window';
 $_LANG['item_type'] = 'Location';

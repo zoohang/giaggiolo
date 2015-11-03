@@ -1783,7 +1783,7 @@ function get_affiliate()
  * @param   integer     $cat_id     分类编号
  * @return  array
  */
-function article_categories_tree($cat_id = 0)
+function article_categories_tree($cat_id = 0,$lang='')
 {
     if ($cat_id > 0)
     {
@@ -1804,8 +1804,8 @@ function article_categories_tree($cat_id = 0)
     if ($GLOBALS['db']->getOne($sql))
     {
         /* 获取当前分类及其子分类 */
-        $sql = 'SELECT a.cat_id, a.cat_name, a.sort_order AS parent_order, a.cat_id, ' .
-                    'b.cat_id AS child_id, b.cat_name AS child_name, b.sort_order AS child_order ' .
+        $sql = 'SELECT a.cat_id, a.cat_name,a.cat_name_en, a.sort_order AS parent_order, a.cat_id, ' .
+                    'b.cat_id AS child_id, b.cat_name AS child_name,b.cat_name_en AS child_name_en, b.sort_order AS child_order ' .
                 'FROM ' . $GLOBALS['ecs']->table('article_cat') . ' AS a ' .
                 'LEFT JOIN ' . $GLOBALS['ecs']->table('article_cat') . ' AS b ON b.parent_id = a.cat_id ' .
                 "WHERE a.parent_id = '$parent_id' AND a.cat_type=1 ORDER BY parent_order ASC, a.cat_id ASC, child_order ASC";
@@ -1813,7 +1813,7 @@ function article_categories_tree($cat_id = 0)
     else
     {
         /* 获取当前分类及其父分类 */
-        $sql = 'SELECT a.cat_id, a.cat_name, b.cat_id AS child_id, b.cat_name AS child_name, b.sort_order ' .
+        $sql = 'SELECT a.cat_id, a.cat_name,a.cat_name_en, b.cat_id AS child_id, b.cat_name AS child_name,b.cat_name_en AS child_name_en, b.sort_order ' .
                 'FROM ' . $GLOBALS['ecs']->table('article_cat') . ' AS a ' .
                 'LEFT JOIN ' . $GLOBALS['ecs']->table('article_cat') . ' AS b ON b.parent_id = a.cat_id ' .
                 "WHERE b.parent_id = '$parent_id' AND b.cat_type = 1 ORDER BY sort_order ASC";
@@ -1824,13 +1824,26 @@ function article_categories_tree($cat_id = 0)
     foreach ($res AS $row)
     {
         $cat_arr[$row['cat_id']]['id']   = $row['cat_id'];
-        $cat_arr[$row['cat_id']]['name'] = $row['cat_name'];
+        if($lang == 'en_us' && $row['cat_name_en'])
+        {
+            $cat_arr[$row['cat_id']]['name'] = $row['cat_name_en'];
+        }else
+        {
+            $cat_arr[$row['cat_id']]['name'] = $row['cat_name'];
+        }
         $cat_arr[$row['cat_id']]['url']  = build_uri('article_cat', array('acid' => $row['cat_id']), $row['cat_name']);
 
         if ($row['child_id'] != NULL)
         {
             $cat_arr[$row['cat_id']]['children'][$row['child_id']]['id']   = $row['child_id'];
-            $cat_arr[$row['cat_id']]['children'][$row['child_id']]['name'] = $row['child_name'];
+            if($lang == 'en_us' && $ $row['child_name_en'])
+            {
+                $cat_arr[$row['cat_id']]['children'][$row['child_id']]['name'] = $row['child_name_en'];
+            }
+            else
+            {
+                $cat_arr[$row['cat_id']]['children'][$row['child_id']]['name'] = $row['child_name'];
+            }
             $cat_arr[$row['cat_id']]['children'][$row['child_id']]['url']  = build_uri('article_cat', array('acid' => $row['child_id']), $row['child_name']);
         }
     }
@@ -1951,6 +1964,8 @@ function get_library_number($library, $template = null)
  */
 function get_navigator($ctype = '', $catlist = array())
 {
+    $lang = $GLOBALS['_CFG']['lang'];
+    
     $sql = 'SELECT * FROM '. $GLOBALS['ecs']->table('nav') . '
             WHERE ifshow = \'1\' ORDER BY type, vieworder';
     $res = $GLOBALS['db']->query($sql);
@@ -1979,6 +1994,10 @@ function get_navigator($ctype = '', $catlist = array())
     );
     while ($row = $GLOBALS['db']->fetchRow($res))
     {
+        if($lang == 'en_us' && $row['name_en'])
+        {
+            $row['name'] = $row['name_en'];
+        }
         $navlist[$row['type']][] = array(
             'name'      =>  $row['name'],
             'opennew'   =>  $row['opennew'],
@@ -1987,7 +2006,6 @@ function get_navigator($ctype = '', $catlist = array())
             'cid'       =>  $row['cid'],
             );
     }
-
     /*遍历自定义是否存在currentPage*/
     foreach($navlist['middle'] as $k=>$v)
     {

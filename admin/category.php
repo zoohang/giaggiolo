@@ -210,7 +210,7 @@ if ($_REQUEST['act'] == 'edit')
         $smarty->assign('cat_recommend', $cat_recommend);
     }
 
-    $smarty->assign('cat_info',    $cat_info);var_dump($cat_info);
+    $smarty->assign('cat_info',    $cat_info);//var_dump($cat_info);
     $smarty->assign('form_act',    'update');
     $smarty->assign('cat_select',  cat_list(0, $cat_info['parent_id'], true));
     $smarty->assign('goods_type_list',  goods_type_list(0)); // 取得商品类型

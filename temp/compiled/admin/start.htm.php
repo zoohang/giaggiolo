@@ -1,37 +1,9 @@
 <!-- $Id: start.htm 17216 2011-01-19 06:03:12Z liubo $ -->
 <?php echo $this->fetch('pageheader.htm'); ?>
 <!-- directory install start -->
-<ul id="cloud_list" style="padding:0; margin: 0; list-style-type:none; color: #CC0000;">
- 
-</ul>
-<script type="Text/Javascript" language="JavaScript">
-<!--
-  Ajax.call('cloud.php?is_ajax=1&act=cloud_remind','', cloud_api, 'GET', 'JSON');
-    function cloud_api(result)
-    {
-      //alert(result.content);
-      if(result.content=='0')
-      {
-        document.getElementById("cloud_list").style.display ='none';
-      }
-      else
-       {
-         document.getElementById("cloud_list").innerHTML =result.content;
-      }
-    } 
-   function cloud_close(id)
-    {
-      Ajax.call('cloud.php?is_ajax=1&act=close_remind&remind_id='+id,'', cloud_api, 'GET', 'JSON');
-    }
-  //-->
- </script> 
-<ul id="lilist" style="padding:0; margin: 0; list-style-type:none; color: #CC0000;">
-  <?php $_from = $this->_var['warning_arr']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'warning');if (count($_from)):
-    foreach ($_from AS $this->_var['warning']):
-?>
-  <li class="Start315"><?php echo $this->_var['warning']; ?></li>
-  <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
-</ul>
+
+
+
 <ul style="padding:0; margin: 0; list-style-type:none; color: #CC0000;">
  <!-- <script type="text/javascript" src="http://bbs.ecshop.com/notice.php?v=1&n=8&f=ul"></script>-->
 </ul>

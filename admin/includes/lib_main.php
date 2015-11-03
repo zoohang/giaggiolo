@@ -322,6 +322,22 @@ function create_html_editor($input_name, $input_value = '')
     $smarty->assign('FCKeditor', $FCKeditor);
 }
 
+function create_html_editor2($input_name,$output_name,$input_value = '')
+{
+    global $smarty;
+
+    $editor = new FCKeditor($input_name);
+    $editor->BasePath   = '../includes/fckeditor/';
+    $editor->ToolbarSet = 'Normal';
+    $editor->Width      = '100%';
+    $editor->Height     = '320';
+    $editor->Value      = $input_value;
+    $FCKeditor = $editor->CreateHtml();
+    $smarty->assign($output_name, $FCKeditor);//这里输出就用$output_name变量了。
+
+}
+
+
 /**
  * 取得商品列表：用于把商品添加到组合、关联类、赠品类
  * @param   object  $filters    过滤条件

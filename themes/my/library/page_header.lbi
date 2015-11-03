@@ -84,10 +84,10 @@
                   </dl>
                   <!--{/foreach}-->
                   <dl>
-                    <dt><a href="./article.php?id=16">运输</a></dt>
+                    <dt><a href="./article.php?id=16">{$lang.shipping}</a></dt>
                   </dl>
                   <dl>
-                    <dt><a href="./article.php?id=22">售后服务</a></dt>
+                    <dt><a href="./article.php?id=22">{$lang.After_sale}</a></dt>
                   </dl>
                 </div>
               </li>

@@ -14,6 +14,7 @@
 */
 
 $_LANG['title'] ='文章标题';
+$_LANG['title_en'] ='文章标题(英文)';
 $_LANG['cat'] ='文章分类';
 $_LANG['reserve'] = '保留';
 $_LANG['article_type'] ='文章重要性';
@@ -52,6 +53,7 @@ $_LANG['move_to'] = '转移到分类';
 $_LANG['article_edit'] = '编辑文章内容';
 $_LANG['tab_general'] = '通用信息';
 $_LANG['tab_content'] = '文章内容';
+$_LANG['tab_content_en'] = '文章内容(英文)';
 $_LANG['tab_goods'] = '关联商品';
 
 $_LANG['link_goods'] = '跟该文章关联的商品';

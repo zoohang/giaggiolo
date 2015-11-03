@@ -57,14 +57,14 @@ if (!$smarty->is_cached('article.dwt', $cache_id))
     }
 
     $smarty->assign('article_categories',   article_categories_tree($article['cat_id'])); //文章分类树
-    $smarty->assign('article_list',   get_cat_articles($article['cat_id'])); //文章分类树
+    $smarty->assign('article_list',   get_cat_articles($article['cat_id'],$_CFG['lang'])); //文章分类树
 
-    $smarty->assign('categories_women',      get_child_tree(17)); // 分类树
-    $smarty->assign('categories_ccessories',      get_categories_tree(18)); // 分类树
-    $smarty->assign('categories_shop',      get_child_tree(16)); // 分类树
-    $smarty->assign('lookbook',     get_cat_articles(11));       // 商店公告
-    $smarty->assign('glaggiolo_world',     get_cat_articles(4));       // 商店公告
-    $smarty->assign('aboutus',     get_cat_articles(12));   
+    $smarty->assign('categories_shop',      get_child_tree(16,$_CFG['lang'])); // 分类树
+    $smarty->assign('categories_women',      get_child_tree(17,$_CFG['lang'])); // 分类树
+    $smarty->assign('categories_ccessories',      get_categories_tree(18,$_CFG['lang'])); // 分类树
+    $smarty->assign('lookbook',     get_cat_articles(11,$_CFG['lang']));       // 商店公告
+    $smarty->assign('glaggiolo_world',     get_cat_articles(4,$_CFG['lang']));       // 商店公告
+    $smarty->assign('aboutus',     get_cat_articles(12,$_CFG['lang']));       // 商店公告  
     $smarty->assign('cat_id',               $article['cat_id']);
     //var_dump(get_cat_articles($article['cat_id']));
     //
@@ -156,6 +156,7 @@ else
 function get_article_info($article_id)
 {
     /* 获得文章的信息 */
+    $lang = $GLOBALS['_CFG']['lang'];
     $sql = "SELECT a.*, IFNULL(AVG(r.comment_rank), 0) AS comment_rank ".
             "FROM " .$GLOBALS['ecs']->table('article'). " AS a ".
             "LEFT JOIN " .$GLOBALS['ecs']->table('comment'). " AS r ON r.id_value = a.article_id AND comment_type = 1 ".
@@ -171,6 +172,14 @@ function get_article_info($article_id)
         if (empty($row['author']) || $row['author'] == '_SHOPHELP')
         {
             $row['author'] = $GLOBALS['_CFG']['shop_name'];
+        }
+        if($lang == 'en_us' && $row['title_en'])
+        {
+            $row['title'] = $row['title_en'];
+        }
+        if($lang == 'en_us' && $row['content_en'])
+        {
+            $row['content'] = $row['content_en'];
         }
     }
 

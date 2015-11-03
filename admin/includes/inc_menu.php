@@ -30,14 +30,14 @@ $modules['02_cat_and_goods']['13_batch_add']        = 'goods_batch.php?act=add';
 $modules['02_cat_and_goods']['14_goods_export']     = 'goods_export.php?act=goods_export';
 $modules['02_cat_and_goods']['15_batch_edit']       = 'goods_batch.php?act=select'; // 商品批量修改
 $modules['02_cat_and_goods']['16_goods_script']     = 'gen_goods_script.php?act=setup';
-$modules['02_cat_and_goods']['17_tag_manage']       = 'tag_manage.php?act=list';
-$modules['02_cat_and_goods']['50_virtual_card_list']   = 'goods.php?act=list&extension_code=virtual_card';
-$modules['02_cat_and_goods']['51_virtual_card_add']    = 'goods.php?act=add&extension_code=virtual_card';
-$modules['02_cat_and_goods']['52_virtual_card_change'] = 'virtual_card.php?act=change';
-$modules['02_cat_and_goods']['goods_auto']             = 'goods_auto.php?act=list';
+//$modules['02_cat_and_goods']['17_tag_manage']       = 'tag_manage.php?act=list';
+//$modules['02_cat_and_goods']['50_virtual_card_list']   = 'goods.php?act=list&extension_code=virtual_card';
+//$modules['02_cat_and_goods']['51_virtual_card_add']    = 'goods.php?act=add&extension_code=virtual_card';
+//$modules['02_cat_and_goods']['52_virtual_card_change'] = 'virtual_card.php?act=change';
+//$modules['02_cat_and_goods']['goods_auto']             = 'goods_auto.php?act=list';
 
 
-$modules['03_promotion']['02_snatch_list']          = 'snatch.php?act=list';
+/*$modules['03_promotion']['02_snatch_list']          = 'snatch.php?act=list';
 $modules['03_promotion']['04_bonustype_list']       = 'bonus.php?act=list';
 $modules['03_promotion']['06_pack_list']            = 'pack.php?act=list';
 $modules['03_promotion']['07_card_list']            = 'card.php?act=list';
@@ -46,9 +46,9 @@ $modules['03_promotion']['09_topic']                = 'topic.php?act=list';
 $modules['03_promotion']['10_auction']              = 'auction.php?act=list';
 $modules['03_promotion']['12_favourable']           = 'favourable.php?act=list';
 $modules['03_promotion']['13_wholesale']            = 'wholesale.php?act=list';
-$modules['03_promotion']['14_package_list']         = 'package.php?act=list';
+$modules['03_promotion']['14_package_list']         = 'package.php?act=list';*/
 //$modules['03_promotion']['ebao_commend']            = 'ebao_commend.php?act=list';
-$modules['03_promotion']['15_exchange_goods']       = 'exchange_goods.php?act=list';
+//$modules['03_promotion']['15_exchange_goods']       = 'exchange_goods.php?act=list';
 
 
 $modules['04_order']['02_order_list']               = 'order.php?act=list';
@@ -66,19 +66,19 @@ $modules['05_banner']['ad_list']                    = 'ads.php?act=list';
 
 $modules['06_stats']['flow_stats']                  = 'flow_stats.php?act=view';
 $modules['06_stats']['searchengine_stats']          = 'searchengine_stats.php?act=view';
-$modules['06_stats']['z_clicks_stats']              = 'adsense.php?act=list';
+//$modules['06_stats']['z_clicks_stats']              = 'adsense.php?act=list';
 $modules['06_stats']['report_guest']                = 'guest_stats.php?act=list';
 $modules['06_stats']['report_order']                = 'order_stats.php?act=list';
 $modules['06_stats']['report_sell']                 = 'sale_general.php?act=list';
 $modules['06_stats']['sale_list']                   = 'sale_list.php?act=list';
 $modules['06_stats']['sell_stats']                  = 'sale_order.php?act=goods_num';
 $modules['06_stats']['report_users']                = 'users_order.php?act=order_num';
-$modules['06_stats']['visit_buy_per']               = 'visit_sold.php?act=list';
+//$modules['06_stats']['visit_buy_per']               = 'visit_sold.php?act=list';
 
 $modules['07_content']['03_article_list']           = 'article.php?act=list';
 $modules['07_content']['02_articlecat_list']        = 'articlecat.php?act=list';
-$modules['07_content']['vote_list']                 = 'vote.php?act=list';
-$modules['07_content']['article_auto']              = 'article_auto.php?act=list';
+//$modules['07_content']['vote_list']                 = 'vote.php?act=list';
+//$modules['07_content']['article_auto']              = 'article_auto.php?act=list';
 //$modules['07_content']['shop_help']                 = 'shophelp.php?act=list_cat';
 //$modules['07_content']['shop_info']                 = 'shopinfo.php?act=list';
 
@@ -98,13 +98,13 @@ $modules['10_priv_admin']['agency_list']            = 'agency.php?act=list';
 $modules['10_priv_admin']['suppliers_list']         = 'suppliers.php?act=list'; // 供货商
 
 $modules['11_system']['01_shop_config']             = 'shop_config.php?act=list_edit';
-$modules['11_system']['shop_authorized']             = 'license.php?act=list_edit';
+//$modules['11_system']['shop_authorized']             = 'license.php?act=list_edit';
 $modules['11_system']['02_payment_list']            = 'payment.php?act=list';
 $modules['11_system']['03_shipping_list']           = 'shipping.php?act=list';
 $modules['11_system']['04_mail_settings']           = 'shop_config.php?act=mail_settings';
 $modules['11_system']['05_area_list']               = 'area_manage.php?act=list';
 //$modules['11_system']['06_plugins']                 = 'plugins.php?act=list';
-$modules['11_system']['07_cron_schcron']            = 'cron.php?act=list';
+//$modules['11_system']['07_cron_schcron']            = 'cron.php?act=list';
 $modules['11_system']['08_friendlink_list']         = 'friend_link.php?act=list';
 $modules['11_system']['sitemap']                    = 'sitemap.php';
 $modules['11_system']['check_file_priv']            = 'check_file_priv.php?act=check';
@@ -133,13 +133,13 @@ $modules['13_backup']['convert']                    = 'convert.php?act=main';
 
 
 //$modules['14_sms']['02_sms_my_info']                = 'sms.php?act=display_my_info';
-$modules['14_sms']['03_sms_send']                   = 'sms.php?act=display_send_ui';
+//$modules['14_sms']['03_sms_send']                   = 'sms.php?act=display_send_ui';
 //$modules['14_sms']['04_sms_charge']                 = 'sms.php?act=display_charge_ui';
 //$modules['14_sms']['05_sms_send_history']           = 'sms.php?act=display_send_history_ui';
 //$modules['14_sms']['06_sms_charge_history']         = 'sms.php?act=display_charge_history_ui';
 
-$modules['15_rec']['affiliate']                     = 'affiliate.php?act=list';
-$modules['15_rec']['affiliate_ck']                  = 'affiliate_ck.php?act=list';
+//$modules['15_rec']['affiliate']                     = 'affiliate.php?act=list';
+//$modules['15_rec']['affiliate_ck']                  = 'affiliate_ck.php?act=list';
 
 $modules['16_email_manage']['email_list']           = 'email_list.php?act=list';
 $modules['16_email_manage']['magazine_list']        = 'magazine_list.php?act=list';

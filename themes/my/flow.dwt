@@ -36,7 +36,7 @@
                     <p class="cnr-tit"><a href="goods.php?id={$goods.goods_id}" target="_blank">{$goods.goods_name}</a></p>
                     <p class="cnr-num">Model No:3578</p>
                     <div class="cart-jg">
-                        <span class="price-span fl">Rs.$<strong>{$goods.goods_price}</strong></span>
+                        <span class="price-span fl"><strong>{$goods.goods_price}</strong></span>
                         <div class="price-num fl">
                            <span class="price-span1">Qty::</span>
                             <div class="sl-num">

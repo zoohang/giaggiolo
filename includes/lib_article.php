@@ -28,7 +28,7 @@ if (!defined('IN_ECS'))
  *
  * @return  array
  */
-function get_cat_articles($cat_id, $page = 1, $size = 20 ,$requirement='')
+function get_cat_articles($cat_id,$lang='', $page = 1, $size = 20 ,$requirement='')
 {
     //取出所有非0的文章
     if ($cat_id == '-1')
@@ -43,7 +43,7 @@ function get_cat_articles($cat_id, $page = 1, $size = 20 ,$requirement='')
     //增加搜索条件，如果有搜索内容就进行搜索    
     if ($requirement != '')
     {
-        $sql = 'SELECT article_id, title, author, add_time, file_url, content,open_type' .
+        $sql = 'SELECT article_id, title,title_en, author, add_time, file_url, content,open_type' .
                ' FROM ' .$GLOBALS['ecs']->table('article') .
                ' WHERE is_open = 1 AND title like \'%' . $requirement . '%\' ' .
                ' ORDER BY article_type DESC, article_id DESC';
@@ -51,7 +51,7 @@ function get_cat_articles($cat_id, $page = 1, $size = 20 ,$requirement='')
     else 
     {
         
-        $sql = 'SELECT article_id, title, author, add_time, file_url, content,open_type' .
+        $sql = 'SELECT article_id, title,title_en, author, add_time, file_url, content,open_type' .
                ' FROM ' .$GLOBALS['ecs']->table('article') .
                ' WHERE is_open = 1 AND ' . $cat_str .
                ' ORDER BY article_type DESC, article_id DESC';
@@ -67,7 +67,13 @@ function get_cat_articles($cat_id, $page = 1, $size = 20 ,$requirement='')
             $article_id = $row['article_id'];
 
             $arr[$article_id]['id']          = $article_id;
-            $arr[$article_id]['title']       = $row['title'];
+            if($lang == 'en_us' && $row['title_en'])
+            {
+                $arr[$article_id]['title']       = $row['title_en'];
+            }else
+            {
+                $arr[$article_id]['title']       = $row['title'];
+            }
             $arr[$article_id]['short_title'] = $GLOBALS['_CFG']['article_title_length'] > 0 ? sub_str($row['title'], $GLOBALS['_CFG']['article_title_length']) : $row['title'];
             $arr[$article_id]['author']      = empty($row['author']) || $row['author'] == '_SHOPHELP' ? $GLOBALS['_CFG']['shop_name'] : $row['author'];
             $arr[$article_id]['url']         = $row['open_type'] != 1 ? build_uri('article', array('aid'=>$article_id), $row['title']) : trim($row['file_url']);

@@ -76,6 +76,7 @@ elseif ($_REQUEST['act'] == 'add')
     elseif ($_REQUEST['step'] == 2)
     {
         $item_name = $_REQUEST['item_name'];
+        $item_name_en = $_REQUEST['item_name_en'];
         $item_url = $_REQUEST['item_url'];
         $item_ifshow = $_REQUEST['item_ifshow'];
         $item_opennew = $_REQUEST['item_opennew'];
@@ -94,13 +95,13 @@ elseif ($_REQUEST['act'] == 'add')
             {
                 //如果为分类
                 set_show_in_nav($arr['type'], $arr['id'], 1);   //设置显示
-                $sql = "INSERT INTO " . $GLOBALS['ecs']->table('nav') . " (name,ctype,cid,ifshow,vieworder,opennew,url,type) VALUES('$item_name','".$arr['type']."','".$arr['id']."','$item_ifshow','$item_vieworder','$item_opennew','$item_url','$item_type')";
+                $sql = "INSERT INTO " . $GLOBALS['ecs']->table('nav') . " (name,name_en,ctype,cid,ifshow,vieworder,opennew,url,type) VALUES('$item_name','$item_name_en','".$arr['type']."','".$arr['id']."','$item_ifshow','$item_vieworder','$item_opennew','$item_url','$item_type')";
             }
         }
 
         if(empty($sql))
         {
-            $sql = "INSERT INTO " . $GLOBALS['ecs']->table('nav') . " (name,ifshow,vieworder,opennew,url,type) VALUES('$item_name','$item_ifshow','$item_vieworder','$item_opennew','$item_url','$item_type')";
+            $sql = "INSERT INTO " . $GLOBALS['ecs']->table('nav') . " (name,name_en,ifshow,vieworder,opennew,url,type) VALUES('$item_name','$item_name_en','$item_ifshow','$item_vieworder','$item_opennew','$item_url','$item_type')";
         }
         $db->query($sql);
         clear_cache_files();
@@ -120,6 +121,7 @@ elseif ($_REQUEST['act'] == 'edit')
         $rt = array('act'=>'edit','id'=>$id);
         $row = $db->getRow("SELECT * FROM " . $GLOBALS['ecs']->table('nav') . " WHERE id='$id'");
         $rt['item_name'] = $row['name'];
+        $rt['item_name_en'] = $row['name_en'];
         $rt['item_url'] = $row['url'];
         $rt['item_vieworder'] = $row['vieworder'];
         $rt['item_ifshow_'.$row['ifshow']] = 'selected';
@@ -138,6 +140,7 @@ elseif ($_REQUEST['act'] == 'edit')
     elseif ($_REQUEST['step'] == 2)
     {
         $item_name = $_REQUEST['item_name'];
+        $item_name_en = $_REQUEST['item_name_en'];
         $item_url = $_REQUEST['item_url'];
         $item_ifshow = $_REQUEST['item_ifshow'];
         $item_opennew = $_REQUEST['item_opennew'];
@@ -179,7 +182,7 @@ elseif ($_REQUEST['act'] == 'edit')
                  set_show_in_nav($arr['type'], $arr['id'], $item_ifshow);
             }
             $sql = "UPDATE " . $GLOBALS['ecs']->table('nav') .
-                " SET name='$item_name',ctype='" . $arr['type'] . "',cid='" . $arr['id'] . "',ifshow='$item_ifshow',vieworder='$item_vieworder',opennew='$item_opennew',url='$item_url',type='$item_type' WHERE id='$id'";
+                " SET name='$item_name',name_en='$item_name_en',ctype='" . $arr['type'] . "',cid='" . $arr['id'] . "',ifshow='$item_ifshow',vieworder='$item_vieworder',opennew='$item_opennew',url='$item_url',type='$item_type' WHERE id='$id'";
         }
         else
         {
@@ -191,7 +194,7 @@ elseif ($_REQUEST['act'] == 'edit')
             }
 
             $sql = "UPDATE " . $GLOBALS['ecs']->table('nav') .
-                " SET name='$item_name',ctype='',cid='',ifshow='$item_ifshow',vieworder='$item_vieworder',opennew='$item_opennew',url='$item_url',type='$item_type' WHERE id='$id'";
+                " SET name='$item_name',name_en='$item_name_en',ctype='',cid='',ifshow='$item_ifshow',vieworder='$item_vieworder',opennew='$item_opennew',url='$item_url',type='$item_type' WHERE id='$id'";
         }
 
 

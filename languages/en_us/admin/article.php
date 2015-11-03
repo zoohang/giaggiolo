@@ -16,6 +16,7 @@
 */
 
 $_LANG['title'] ='Title';
+$_LANG['title_en'] ='Title(English)';
 $_LANG['cat'] ='Category';
 $_LANG['reserve'] = 'Reserve';
 $_LANG['article_type'] ='Importance';
@@ -55,6 +56,7 @@ $_LANG['button_remove'] ='Batch delete';
 $_LANG['article_edit'] = 'Edit article content';
 $_LANG['tab_general'] = 'Common information';
 $_LANG['tab_content'] = 'Content';
+$_LANG['tab_content_en'] = 'Content(English)';
 $_LANG['tab_goods'] = 'Relational product';
 
 $_LANG['link_goods'] = 'Products related to article';

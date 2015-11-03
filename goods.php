@@ -191,12 +191,12 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
         $smarty->assign('goods_id',           $goods['goods_id']);
         $smarty->assign('promote_end_time',   $goods['gmt_end_time']);
         $smarty->assign('categories',         get_categories_tree($goods['cat_id']));  // 分类树
-            $smarty->assign('categories_shop',      get_child_tree(16)); // 分类树
-    $smarty->assign('categories_women',      get_child_tree(17)); // 分类树
-    $smarty->assign('categories_ccessories',      get_categories_tree(18)); // 分类树
-    $smarty->assign('lookbook',     get_cat_articles(11));       // 商店公告
-    $smarty->assign('glaggiolo_world',     get_cat_articles(4));       // 商店公告
-    $smarty->assign('aboutus',     get_cat_articles(12));       // 商店公告
+        $smarty->assign('categories_shop',      get_child_tree(16,$_CFG['lang'])); // 分类树
+        $smarty->assign('categories_women',      get_child_tree(17,$_CFG['lang'])); // 分类树
+        $smarty->assign('categories_ccessories',      get_categories_tree(18,$_CFG['lang'])); // 分类树
+        $smarty->assign('lookbook',     get_cat_articles(11,$_CFG['lang']));       // 商店公告
+        $smarty->assign('glaggiolo_world',     get_cat_articles(4,$_CFG['lang']));       // 商店公告
+        $smarty->assign('aboutus',     get_cat_articles(12,$_CFG['lang']));       // 商店公告
         /* meta */
         $smarty->assign('keywords',           htmlspecialchars($goods['keywords']));
         $smarty->assign('description',        htmlspecialchars($goods['goods_brief']));

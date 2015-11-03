@@ -100,6 +100,7 @@ $_LANG['goods_sn_exists'] ='The product NO. already exist, please change a numbe
 /*------------------------------------------------------ */
 $_LANG['tab_general'] ='Brief';
 $_LANG['tab_detail'] ='Details';
+$_LANG['tab_detail_en'] ='Details(English)';
 $_LANG['tab_mix'] ='Others';
 $_LANG['tab_properties'] ='Attribute';
 $_LANG['tab_gallery'] ='Gallery';
@@ -108,6 +109,7 @@ $_LANG['tab_groupgoods'] ='Accessories';
 $_LANG['tab_article'] ='Relational articles';
 
 $_LANG['lab_goods_name'] ='Name:';
+$_LANG['lab_goods_name_en'] ='Name(English):';
 $_LANG['lab_goods_sn'] ='NO.:';
 $_LANG['lab_goods_cat'] ='Category:';
 $_LANG['lab_other_cat'] ='Extend category:';

@@ -109,15 +109,16 @@ if (!$smarty->is_cached('index.dwt', $cache_id))
     $smarty->assign('flash_theme',     $_CFG['flash_theme']);  // Flash轮播图片模板
 
     $smarty->assign('feed_url',        ($_CFG['rewrite'] == 1) ? 'feed.xml' : 'feed.php'); // RSS URL
+    //var_dump($_CFG['lang']);
+    $smarty->assign('categories',      get_categories_tree(0,$_CFG['lang'])); // 分类树
+    
+    $smarty->assign('categories_shop',      get_child_tree(16,$_CFG['lang'])); // 分类树
+    $smarty->assign('categories_women',      get_child_tree(17,$_CFG['lang'])); // 分类树
+    $smarty->assign('categories_ccessories',      get_categories_tree(18,$_CFG['lang'])); // 分类树
+    $smarty->assign('lookbook',     get_cat_articles(11,$_CFG['lang']));       // 商店公告
+    $smarty->assign('glaggiolo_world',     get_cat_articles(4,$_CFG['lang']));       // 商店公告
+    $smarty->assign('aboutus',     get_cat_articles(12,$_CFG['lang']));       // 商店公告
 
-    $smarty->assign('categories',      get_categories_tree()); // 分类树
-    $smarty->assign('categories_shop',      get_child_tree(16)); // 分类树
-    $smarty->assign('categories_women',      get_child_tree(17)); // 分类树
-    $smarty->assign('categories_ccessories',      get_categories_tree(18)); // 分类树
-    $smarty->assign('lookbook',     get_cat_articles(11));       // 商店公告
-    $smarty->assign('glaggiolo_world',     get_cat_articles(4));       // 商店公告
-    $smarty->assign('aboutus',     get_cat_articles(12));       // 商店公告
-    //var_dump(get_child_tree(16));
     $smarty->assign('helps',           get_shop_help());       // 网店帮助
     $smarty->assign('top_goods',       get_top10());           // 销售排行
 

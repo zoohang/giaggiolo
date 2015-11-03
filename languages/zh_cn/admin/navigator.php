@@ -16,6 +16,7 @@
 $_LANG['add_new'] = '添加导航';
 $_LANG['system_main'] = '系统内容';
 $_LANG['item_name'] = '名称';
+$_LANG['item_name_en'] = '名称(英文)';
 $_LANG['item_ifshow'] = '是否显示';
 $_LANG['item_opennew'] = '是否新窗口';
 $_LANG['item_type'] = '位置';

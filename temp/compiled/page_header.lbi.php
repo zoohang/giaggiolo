@@ -99,10 +99,10 @@ if ($this->_foreach['nav_middle_list']['total'] > 0):
                   </dl>
                   <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
                   <dl>
-                    <dt><a href="./article.php?id=16">运输</a></dt>
+                    <dt><a href="./article.php?id=16"><?php echo $this->_var['lang']['shipping']; ?></a></dt>
                   </dl>
                   <dl>
-                    <dt><a href="./article.php?id=22">售后服务</a></dt>
+                    <dt><a href="./article.php?id=22"><?php echo $this->_var['lang']['After_sale']; ?></a></dt>
                   </dl>
                 </div>
               </li>

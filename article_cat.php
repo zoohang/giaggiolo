@@ -65,7 +65,7 @@ if (!$smarty->is_cached('article_cat.dwt', $cache_id))
     $smarty->assign('page_title',           $position['title']);     // 页面标题
     $smarty->assign('ur_here',              $position['ur_here']);   // 当前位置
 
-    $smarty->assign('categories',           get_categories_tree(0)); // 分类树
+    $smarty->assign('categories',           get_categories_tree(0,$_CFG['lang'])); // 分类树
     $smarty->assign('article_categories',   article_categories_tree($cat_id)); //文章分类树
     $smarty->assign('helps',                get_shop_help());        // 网店帮助
     $smarty->assign('top_goods',            get_top10());            // 销售排行
@@ -78,14 +78,13 @@ if (!$smarty->is_cached('article_cat.dwt', $cache_id))
 
 
 
-    $smarty->assign('article_list',   get_cat_articles($cat_id)); //文章分类树
-    $smarty->assign('categories_shop',      get_child_tree(16)); // 分类树
-    $smarty->assign('categories_women',      get_child_tree(17)); // 分类树
-    $smarty->assign('categories_ccessories',      get_categories_tree(18)); // 分类树
-    $smarty->assign('lookbook',     get_cat_articles(11));  
-
-    $smarty->assign('glaggiolo_world',     get_cat_articles(4));      
-    $smarty->assign('aboutus',     get_cat_articles(12));   
+    $smarty->assign('article_list',   get_cat_articles($cat_id,$_CFG['lang'])); //文章分类树
+    $smarty->assign('categories_shop',      get_child_tree(16,$_CFG['lang'])); // 分类树
+    $smarty->assign('categories_women',      get_child_tree(17,$_CFG['lang'])); // 分类树
+    $smarty->assign('categories_ccessories',      get_categories_tree(18,$_CFG['lang'])); // 分类树
+    $smarty->assign('lookbook',     get_cat_articles(11,$_CFG['lang']));       // 商店公告
+    $smarty->assign('glaggiolo_world',     get_cat_articles(4,$_CFG['lang']));       // 商店公告
+    $smarty->assign('aboutus',     get_cat_articles(12,$_CFG['lang']));       // 商店公告
     //var_dump(article_categories_tree($cat_id));
 
 
@@ -133,8 +132,8 @@ if (!$smarty->is_cached('article_cat.dwt', $cache_id))
 
         $goon_keywords = urlencode($_REQUEST['keywords']);
     }
-    $smarty->assign('artciles_list',    get_cat_articles($cat_id, $page, $size ,$keywords));
-    var_dump(get_cat_articles($cat_id, $page, $size ,$keywords));
+    $smarty->assign('artciles_list',    get_cat_articles($cat_id,$_CFG['lang'], $page, $size ,$keywords));
+    //var_dump(get_cat_articles($cat_id, $page, $size ,$keywords));
     $smarty->assign('cat_id',    $cat_id);
     /* 分页 */
     assign_pager('article_cat', $cat_id, $count, $size, '', '', $page, $goon_keywords);

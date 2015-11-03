@@ -118,13 +118,12 @@ $_CFG = load_config();
 
 /* 载入语言文件 */
 //require(ROOT_PATH . 'languages/' . $_CFG['lang'] . '/common.php');
-
 if ($_CFG['shop_closed'] == 1)
 {
     /* 商店关闭了，输出关闭的消息 */
     header('Content-type: text/html; charset='.EC_CHARSET);
 
-    die('<div style="margin: 150px; text-align: center; font-size: 14px"><p>' . $_LANG['shop_closed'] . '</p><p>' . $_CFG['close_comment'] . '</p></div>');
+    die('<div style="margin: 150px; text-align: center; font-size: 14px"><p> shop closed ! </p><p>' . $_CFG['close_comment'] . '</p></div>');
 }
 
 if (is_spider())
@@ -206,7 +205,7 @@ if (!defined('INIT_NO_USERS'))
     if (!isset($_SESSION['user_id']))
     {
         /* 获取投放站点的名称 */
-        $site_name = isset($_GET['from'])   ? $_GET['from'] : addslashes($_LANG['self_site']);
+        $site_name = isset($_GET['from'])   ? $_GET['from'] : addslashes('Home');
         $from_ad   = !empty($_GET['ad_id']) ? intval($_GET['ad_id']) : 0;
 
         $_SESSION['from_ad'] = $from_ad; // 用户点击的广告ID
@@ -282,8 +281,11 @@ if (!defined('INIT_NO_USERS'))
 }
 
 if(!empty($_REQUEST['lang'])){
- $_SESSION['lang']=$_REQUEST['lang'];
+    $_SESSION['lang']=$_REQUEST['lang'];
+}else{
+    $_SESSION['lang'] = 'en_us';
 }
+
 if (!empty($_SESSION['lang']))
 {
 switch($_SESSION['lang']){
@@ -299,7 +301,11 @@ switch($_SESSION['lang']){
 }
 }
 require(ROOT_PATH . 'languages/' . $_CFG['lang'] . '/common.php');
-$smarty->assign('lang', $_LANG);
+//$smarty->assign('lang', $_LANG);
+if (isset($smarty))
+{
+    $smarty->assign('lang', $_LANG);
+}
 
 if ((DEBUG_MODE & 1) == 1)
 {

@@ -18,6 +18,8 @@ $_LANG['empty_username_password'] = '对不起，您必须完整填写用户名�
 $_LANG['shot_message'] = "短消息";
 
 /* 公共语言项 */
+$_LANG['shipping'] = '运输';
+$_LANG['After_sale'] = '售后服务';
 $_LANG['sys_msg'] = '系统提示';
 $_LANG['catalog'] = '目录';
 $_LANG['please_view_order_detail'] = '商品已发货，详情请到用户中心订单详情查看';

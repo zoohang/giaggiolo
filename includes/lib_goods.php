@@ -37,7 +37,7 @@ function goods_sort($goods_a, $goods_b)
  * @param   integer     $cat_id     分类编号
  * @return  array
  */
-function get_categories_tree($cat_id = 0)
+function get_categories_tree($cat_id = 0,$lang = 'zh_cn')
 {
     if ($cat_id > 0)
     {
@@ -58,7 +58,7 @@ function get_categories_tree($cat_id = 0)
     if ($GLOBALS['db']->getOne($sql) || $parent_id == 0)
     {
         /* 获取当前分类及其子分类 */
-        $sql = 'SELECT cat_id,cat_name ,parent_id,is_show ' .
+        $sql = 'SELECT cat_id,cat_name, cat_name_en,parent_id,is_show ' .
                 'FROM ' . $GLOBALS['ecs']->table('category') .
                 "WHERE parent_id = '$parent_id' AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC";
 
@@ -69,12 +69,19 @@ function get_categories_tree($cat_id = 0)
             if ($row['is_show'])
             {
                 $cat_arr[$row['cat_id']]['id']   = $row['cat_id'];
-                $cat_arr[$row['cat_id']]['name'] = $row['cat_name'];
+                if($lang == 'en_us' && $row['cat_name_en'])
+                {
+                    $cat_arr[$row['cat_id']]['name'] = $row['cat_name_en'];
+                }
+                else
+                {
+                    $cat_arr[$row['cat_id']]['name'] = $row['cat_name'];
+                }
                 $cat_arr[$row['cat_id']]['url']  = build_uri('category', array('cid' => $row['cat_id']), $row['cat_name']);
 
                 if (isset($row['cat_id']) != NULL)
                 {
-                    $cat_arr[$row['cat_id']]['cat_id'] = get_child_tree($row['cat_id']);
+                    $cat_arr[$row['cat_id']]['cat_id'] = get_child_tree($row['cat_id'],$lang);
                 }
             }
         }
@@ -85,13 +92,13 @@ function get_categories_tree($cat_id = 0)
     }
 }
 
-function get_child_tree($tree_id = 0)
+function get_child_tree($tree_id = 0,$lang = 'zh_cn')
 {
     $three_arr = array();
     $sql = 'SELECT count(*) FROM ' . $GLOBALS['ecs']->table('category') . " WHERE parent_id = '$tree_id' AND is_show = 1 ";
     if ($GLOBALS['db']->getOne($sql) || $tree_id == 0)
     {
-        $child_sql = 'SELECT cat_id, cat_name, parent_id, is_show ' .
+        $child_sql = 'SELECT cat_id, cat_name,cat_name_en, parent_id, is_show ' .
                 'FROM ' . $GLOBALS['ecs']->table('category') .
                 "WHERE parent_id = '$tree_id' AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC";
         $res = $GLOBALS['db']->getAll($child_sql);
@@ -100,12 +107,20 @@ function get_child_tree($tree_id = 0)
             if ($row['is_show'])
 
                $three_arr[$row['cat_id']]['id']   = $row['cat_id'];
-               $three_arr[$row['cat_id']]['name'] = $row['cat_name'];
+               
+               if($lang == 'en_us' && $row['cat_name_en'])
+                {
+                    $three_arr[$row['cat_id']]['name'] = $row['cat_name_en'];
+                }
+                else
+                {
+                    $three_arr[$row['cat_id']]['name'] = $row['cat_name'];
+                }
                $three_arr[$row['cat_id']]['url']  = build_uri('category', array('cid' => $row['cat_id']), $row['cat_name']);
 
                if (isset($row['cat_id']) != NULL)
                    {
-                       $three_arr[$row['cat_id']]['cat_id'] = get_child_tree($row['cat_id']);
+                       $three_arr[$row['cat_id']]['cat_id'] = get_child_tree($row['cat_id'],$lang);
 
             }
         }
@@ -499,6 +514,7 @@ function get_category_recommend_goods($type = '', $cats = '', $brand = 0, $min =
 function get_goods_info($goods_id)
 {
     $time = gmtime();
+    $lang = $GLOBALS['_CFG']['lang'];
     $sql = 'SELECT g.*, c.measure_unit, b.brand_id, b.brand_name AS goods_brand, m.type_money AS bonus_money, ' .
                 'IFNULL(AVG(r.comment_rank), 0) AS comment_rank, ' .
                 "IFNULL(mp.user_price, g.shop_price * '$_SESSION[discount]') AS rank_price " .
@@ -580,6 +596,16 @@ function get_goods_info($goods_id)
         {
             $row['gmt_end_time'] = 0;
         }
+
+        if($lang == 'en_us' && $row['goods_name_en'])
+        {
+            $row['goods_name'] = $row['goods_name_en'];
+        }
+        if($lang == 'en_us' && $row['goods_desc_en'])
+        {
+            $row['goods_desc'] = $row['goods_desc_en'];
+        }
+
 
         /* 是否显示商品库存数量 */
         $row['goods_number']  = ($GLOBALS['_CFG']['use_storage'] == 1) ? $row['goods_number'] : '';

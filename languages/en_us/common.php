@@ -18,6 +18,9 @@ $_LANG['empty_username_password'] = 'Please enter username and password.';
 $_LANG['shot_message'] = "Short message";
 
 /* 公共语言项 */
+
+$_LANG['shipping'] = 'shipping';
+$_LANG['After_sale'] = 'After-sale service';
 $_LANG['sys_msg'] = 'System Message';
 $_LANG['catalog'] = 'Catalog';
 $_LANG['please_view_order_detail'] = 'Please view order detail in Member Center';

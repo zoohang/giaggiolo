@@ -17,6 +17,7 @@
       <p>
         <span class="tab-front" id="general-tab"><?php echo $this->_var['lang']['tab_general']; ?></span><span
         class="tab-back" id="detail-tab"><?php echo $this->_var['lang']['tab_detail']; ?></span><span
+        class="tab-back" id="detail2-tab"><?php echo $this->_var['lang']['tab_detail_en']; ?></span><span
         class="tab-back" id="mix-tab"><?php echo $this->_var['lang']['tab_mix']; ?></span><?php if ($this->_var['goods_type_list']): ?><span
         class="tab-back" id="properties-tab"><?php echo $this->_var['lang']['tab_properties']; ?></span><?php endif; ?><span
         class="tab-back" id="gallery-tab"><?php echo $this->_var['lang']['tab_gallery']; ?></span><span
@@ -42,6 +43,13 @@
             </select>
             <?php echo $this->_var['lang']['require_field']; ?></td>
           </tr>
+          <tr>
+            <td class="label"><?php echo $this->_var['lang']['lab_goods_name_en']; ?></td>
+            <td>
+              <input type="text" name="goods_name_en" value="<?php echo $this->_var['goods']['goods_name_en']; ?>" size="20" />
+            </td>
+          </tr>
+          <tr>
           <tr>
             <td class="label">
             <a href="javascript:showNotice('noticeGoodsSN');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> <?php echo $this->_var['lang']['lab_goods_sn']; ?> </td>
@@ -211,6 +219,12 @@ if ($this->_foreach['volume_price_tab']['total'] > 0):
         <table width="90%" id="detail-table" style="display:none">
           <tr>
             <td><?php echo $this->_var['FCKeditor']; ?></td>
+          </tr>
+        </table>
+
+        <table width="90%" id="detail2-table" style="display:none">
+          <tr>
+            <td><?php echo $this->_var['goods_desc_en']; ?></td>
           </tr>
         </table>
 

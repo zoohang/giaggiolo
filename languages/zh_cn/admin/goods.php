@@ -97,6 +97,7 @@ $_LANG['goods_sn_exists'] = '您输入的货号已存在，请换一个';
 /*------------------------------------------------------ */
 $_LANG['tab_general'] = '通用信息';
 $_LANG['tab_detail'] = '详细描述';
+$_LANG['tab_detail_en'] = '详细描述(英文)';
 $_LANG['tab_mix'] = '其他信息';
 $_LANG['tab_properties'] = '商品属性';
 $_LANG['tab_gallery'] = '商品相册';
@@ -105,6 +106,7 @@ $_LANG['tab_groupgoods'] = '配件';
 $_LANG['tab_article'] = '关联文章';
 
 $_LANG['lab_goods_name'] = '商品名称：';
+$_LANG['lab_goods_name_en'] = '商品名称(英文)：';
 $_LANG['lab_goods_sn'] = '商品货号：';
 $_LANG['lab_goods_cat'] = '商品分类：';
 $_LANG['lab_other_cat'] = '扩展分类：';
